@@ -1,0 +1,11 @@
+.headers-d-flex {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+.link {
+  text-decoration: none;
+
+  color: black;
+}
