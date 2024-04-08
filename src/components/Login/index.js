@@ -4,24 +4,23 @@ import {Redirect} from 'react-router-dom'
 import './index.css'
 
 const Login = props => {
-
-  const onClickToSubmit = async () => {    
-    const url = "https://apis.ccbp.in/login"
+  const onClickToSubmit = async () => {
+    const url = 'https://apis.ccbp.in/login'
     const userDetails = {
       username: 'rahul',
       password: 'rahul@2021',
     }
     const options = {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(userDetails),
     }
 
-    const data = await fetch (url, options)
-    const jwtToken = await data.json()
+    const data = await fetch(url, options)
+    const token = await data.json()
 
-    if (data.ok === true){
+    if (data.ok === true) {
       const {history} = props
-      Coockies.set('jwt_token', jwtToken, {expires: 30})
+      Coockies.set('jwt_token', token, {expires: 30})
       history.replace('/')
     }
   }
@@ -33,9 +32,7 @@ const Login = props => {
   return (
     <div className="d-flex">
       <h1>Please Login</h1>
-      <button onClick={onClickToSubmit}>
-        Login with Sample Creds
-      </button>
+      <button onClick={onClickToSubmit}>Login with Sample Creds</button>
     </div>
   )
 }

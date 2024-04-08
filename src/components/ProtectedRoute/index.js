@@ -2,9 +2,9 @@ import Cookies from 'js-cookie'
 import {Route, Redirect} from 'react-router-dom'
 
 const ProtectedRoute = props => {
-  const jwtToken = Cookies.get('jwt_token')
-  console.log('protected ' + jwtToken)
-  if (jwtToken !== undefined) {
+  const token = Cookies.get('jwt_token')
+  
+  if (token !== undefined) {
     return <Route {...props} />
   }
   return <Redirect to="/login" />
